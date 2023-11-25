@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace learnPlaywright.Pages
@@ -41,7 +42,7 @@ namespace learnPlaywright.Pages
         public async Task AssertPageContent(string searchTerm)
         {
             //Assert the page url
-            await _page.WaitForURLAsync($"https://duckduckgo.com/?va=v*");
+            await _page.WaitForURLAsync(new Regex("https://duckduckgo.com/\\?va=d&"));
 
             //Assert the search input has the search term
             var searchInputInnerText = await SearchInput.InputValueAsync();
